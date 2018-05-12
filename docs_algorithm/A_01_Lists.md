@@ -1,6 +1,6 @@
-### Listy
-
 >> Algorytmika jest nauką prostą, bo wszystko zostało już wymyślone.
+
+### Listy
 
 Listy:
 - listy składają się z krawędzi i węzłów, więc można mówić o grafach;
@@ -42,7 +42,10 @@ Operacje na danych w liście przeprowadza nadzorca. Najczęstsze operacje na lis
 - find;
 
 Wady list:
-- **listy są nieciągłe**r
+- **listy są nieciągłe**:
     - dojście do jakiegoś elementu wymaga przeiterowania się po wszystkich elementach:
     - search: O(N);
     - insert: O(1) -> jest już znalezione, wstawienie to jedna operacja;
+- zrobienie list, żeby były odporne na wątki jest co najmniej bardzo trudne - jak to zrobić, żeby nie blokować za dużo;
+
+>> Operacje wewnątrz listy są jak roboty drogowe - do tego miejsca możesz wjechać i robić cokolwiek, ale potem droga jest rozcięta i nic nie zrobisz.
