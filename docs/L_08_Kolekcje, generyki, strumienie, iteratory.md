@@ -99,11 +99,12 @@ Zbiory są rzeczy różnych. Włożenie drugiej takiej samej rzeczy nie spowoduj
 ### Typy generyczne (czyli templejty)
 
 W javie parametrem nigdy nie jest typ, tylko obiekt pewnego typu.
+
 W deklaracji parametru metody musi być zdeklarowany typ.
+
 Nie można zrobić ogólnej funkcji minimum, trzeba stworzyć oddzielną funckję dla intów, longów, itd.
 
-Ale można zrobić template!
-To znaczy można zrobić klasę która zawiera metodę;
+Ale można zrobić template, to znaczy można zrobić klasę która zawiera metodę;
 
 ```JAVA
 class Generic1 <T> {
@@ -122,6 +123,7 @@ class Generic2 <T extends Comparable> {
 ```
 
 Tutaj musi być `extends Comparable`, bo dalej lecimy porównywaniem.
+
 `a.compareTo(b) < 0` bo compareTo zwraca -1, 0 lub 1;
 
 Metodę template można też stworzyć:
