@@ -91,19 +91,21 @@ public class SLL<T> {
     }
 
     public void delete(Node item) {
-        Node ref = head;
 
+        if (head == null) {
+            return;
+        }
 
-        
+        if (item.next == null) {
+            return;
+        }
 
-//        if (item == null) {
-//            newNode.next = head;
-//            head = newNode;
-//            return;
-//        }
+        if (item == null) {
+            head = head.next;
+            return;
+        }
 
-//        item.next
-//        newNode.next = item.next;
-//        item.next = newNode;
+        item.next = item.next.next;
+
     }
 }
