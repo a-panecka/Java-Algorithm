@@ -36,6 +36,15 @@ public class SLL<T> {
         return nodeCount;
     }
 
+    public void print() {
+        Node ref = head;
+        while (ref != null) {
+            System.out.print(ref.getData() + "; ");
+            ref = ref.next;
+        }
+        System.out.print("\n");
+    }
+
     public void appendNode(T newData) {
         Node ref = head;
         Node newNode = new Node(newData);
@@ -107,5 +116,25 @@ public class SLL<T> {
 
         item.next = item.next.next;
 
+    }
+
+    public void headToTail(Node newHead) {
+        
+        Node ref = head;
+
+        while (ref.next != null) {
+            ref = ref.next;
+        }
+
+        ref.next = head;
+        head = newHead.next;
+
+        ref = head;
+
+        while (ref.next != newHead.next) {
+            ref = ref.next;
+        }
+
+        ref.next = null;
     }
 }
