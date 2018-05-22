@@ -150,3 +150,11 @@ oznacza, że funkcja fun przekazuje jako argumenty tablicę Stringów: `String [
 Biblioteki do obsługi konfiguracji pliku:
 - JAXB;
 - APACHE COMMONS CONFIGURATION;
+
+---
+
+_YELD_:
+- programiści lubią wszystko mierzyć;
+    - ile jest linijek w kodzie w ogóle;
+    - ile może być linijek w jednej klasie: tyle ile się zmieści na ekranie, czyli koło 60;
+    - ile jest ifów - każdy if to nowy unit test;
