@@ -3,8 +3,8 @@ package org.abymaly.code;
 public class SLL<T> {
 
     public class Node<T> {
-        T data;
-        Node next;
+        private T data;
+        private Node next;
 
         public T getData() {
             return data;
@@ -37,17 +37,22 @@ public class SLL<T> {
     }
 
     public void print() {
+
         Node ref = head;
+        String str = "";
+        StringBuffer sb = new StringBuffer(str);
         while (ref != null) {
-            System.out.print(ref.getData() + "; ");
+            sb.append(ref.getData().toString());
+            sb.append("; ");
             ref = ref.next;
         }
-        System.out.print("\n");
+        System.out.println(sb);
     }
 
     public void appendNode(T newData) {
         Node ref = head;
-        Node newNode = new Node(newData);
+        Node<T> newNode = new Node<>(newData);
+
         if (head == null) {
             head = newNode;
         } else {
@@ -92,11 +97,10 @@ public class SLL<T> {
         if (item == null) {
             newNode.next = head;
             head = newNode;
-            return;
+        } else {
+            newNode.next = item.next;
+            item.next = newNode;
         }
-
-        newNode.next = item.next;
-        item.next = newNode;
     }
 
     public void delete(Node item) {
@@ -105,12 +109,12 @@ public class SLL<T> {
             return;
         }
 
-        if (item.next == null) {
+        if (item == null) {
+            head = head.next;
             return;
         }
 
-        if (item == null) {
-            head = head.next;
+        if (item.next == null) {
             return;
         }
 
@@ -119,7 +123,7 @@ public class SLL<T> {
     }
 
     public void headToTail(Node newHead) {
-        
+
         Node ref = head;
 
         while (ref.next != null) {
@@ -128,13 +132,6 @@ public class SLL<T> {
 
         ref.next = head;
         head = newHead.next;
-
-        ref = head;
-
-        while (ref.next != newHead.next) {
-            ref = ref.next;
-        }
-
-        ref.next = null;
+        newHead.next = null;
     }
 }

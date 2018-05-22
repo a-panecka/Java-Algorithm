@@ -6,3 +6,8 @@
 - dla nadgorliwych: napisać search, delete i insert, tylko na listach dwukierunkowych;
 
 - commit -> push -> pull request (z list do master) + jbanaszczyk
+
+**Chess** (19.05.18):
+- zrobić tak, żeby współrzędne ruchów wieżą była klasą;
+- metoda ma zapisywać wyniki do obiektów klasy;
+- potem metoda dodająca współrzędne do współrzędnych (sprawdzać, czy nie wyszło poza zakres);
