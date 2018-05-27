@@ -27,12 +27,11 @@
 ---
 
 **Zasłaniające się budynki**
-- wyimaginujcie sobie osiedle mieszkaniowe. Kilka/wiele bloków. Stojących w jednej linii. Niech będzie, że wzdłuż osi X, od zera w prawo.
+- wyimaginujcie sobie bloki stojących w jednej linii. Niech będzie, że wzdłuż osi X, od zera w prawo
 - bloki zasłaniają sobie widok na świat. To są stare bloki, mają okna tylko po prawej stronie. Tak, żeby sobie jeszcze doskonalej zasłaniać.
 - bloki mają wysokość, odliczając od lewej: 10 7 6 8 2 5 1 pięter.
 - umówmy się, że zwrot "widać świat z piętra X" oznacza, że po prawej nie ma żadnego bloku nawet X piętrowego, wszystkie są niższe
 - czyli z bloku z lewej strony widać świat z piętra 9 (po innym zasłania blok 8-piętrowy). Tej liczby oczekuję w wyniku. A z bloku następnego z żadnego piętra nie widać świata, czyli wynik 0. Itd. A z 8-piętrowego - widać świat nawet z 6 piętra, bo reszcie pięcio-piętrowy zasłania
-
 - są trzy rozwiązania z czego 2 dobre
 - najbardziej oczywiste: szukać dla każdego po najwyższego do końca listy -> On^2/2
     - tutaj dostajemy jakiś wynik i go wyrzucamy, zamiast wykorzystać dalej. można inaczej
