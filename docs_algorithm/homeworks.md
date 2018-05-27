@@ -7,10 +7,14 @@
 
 - commit -> push -> pull request (z list do master) + jbanaszczyk
 
+---
+
 **Chess** (19.05.18):
 - zrobić tak, żeby współrzędne ruchów wieżą była klasą;
 - metoda ma zapisywać wyniki do obiektów klasy;
 - potem metoda dodająca współrzędne do współrzędnych (sprawdzać, czy nie wyszło poza zakres);
+
+---
 
 **Plansza i magnesy**
 - jest sobie plansza, podzielona na wiersze i kolumny;
@@ -19,6 +23,8 @@
 - dodatkowo są cztery magnesy o numerach: 1, 2, 3, 4, położone na każdym boku;
 - po włączeniu magnesu kółko leci najbliżej w stornę tego magnesu jak może (pole z krzyżykiem jest blokadą);
 - ile pól przeleci po włączeniu konkretnej sekwencji magnesu;
+
+---
 
 **Zasłaniające się budynki**
 - wyimaginujcie sobie osiedle mieszkaniowe. Kilka/wiele bloków. Stojących w jednej linii. Niech będzie, że wzdłuż osi X, od zera w prawo.
@@ -33,6 +39,8 @@
 - można rekurencyjnie
 - i można liczyć od końca
 
+---
+
 **Płotek**
 - jest sobie płotek. o różnych wysokościach szczebelków
 - na każdym szczebelku kładziemy kuleczkę, liczymy ile razy spadnie
@@ -40,5 +48,3 @@
 - a co jeśli płotek jest planszą?
     - wtedy trzeba najprotszym pomysłem jest DFS, czyli polecieć rekurencją
     - jeszcze można sprawdzać od największych
-
-
