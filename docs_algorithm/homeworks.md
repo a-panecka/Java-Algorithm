@@ -45,3 +45,10 @@
 - a co jeśli płotek jest planszą?
     - wtedy trzeba najprotszym pomysłem jest DFS, czyli polecieć rekurencją
     - jeszcze można sprawdzać od największych
+
+---
+
+**Drzewo binarne**
+- implementacja drzewa binarnego;
+- jak zawsze: add, delete, find;
+
