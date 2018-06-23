@@ -4,47 +4,34 @@ public class Magnets {
 
     public Signs[][] board;
     private final int size;
-    public int possibleMoves = 0;
+    public int movesCount;
 
-    public Magnets(int size) {
-        this.size = size;
-        this.board = new Signs[size][size];
+    public int getSize() {
+        return size;
     }
 
     public Magnets() {
         this.size = 4;
+        this.board = new Signs[getSize()][getSize()];
     }
 
-    class StartPosition {
-        int x;
-        int y;
-
-        public StartPosition() {
-        }
-    }
-
-    StartPosition startPosition = new StartPosition();
-
-    public void printBoard(Signs[][] board) {
+    public String boardToString(Signs[][] board) {
         String newLine = "\n";
-        StringBuffer sbLine = new StringBuffer();
+        StringBuffer result = new StringBuffer();
 
         for (int i = 0; i < size; ++i) {
             for (int j = 0; j < size; ++j) {
-                if (board[i][j].equals(Signs.EMPTY)) {
-                    sbLine.append(" _ ");
-                } else {
-                    sbLine.append(" ");
-                    sbLine.append(board[i][j]);
-                    sbLine.append(" ");
-                }
+                result
+                        .append(" ")
+                        .append((board[i][j]).getMark())
+                        .append(" ");
             }
-            sbLine.append(newLine);
+            result.append(newLine);
         }
-        System.out.println(sbLine);
+        return result.toString();
     }
 
-    public void setStartPosition(Signs[][] board, int x, int y) {
+    public void setCurrentPosition(Signs[][] board, int x, int y) {
         board[x][y] = Signs.O;
     }
 
@@ -52,8 +39,8 @@ public class Magnets {
         board[x][y] = value;
     }
 
-    public Signs[][] emptyBoard () {
-        Signs [][] newBoard = new Signs[size][size];
+    public Signs[][] emptyBoard() {
+        Signs[][] newBoard = new Signs[size][size];
         for (int i = 0; i < size; ++i) {
             for (int j = 0; j < size; ++j) {
                 setData(newBoard, i, j, Signs.EMPTY);
@@ -62,98 +49,130 @@ public class Magnets {
         return newBoard;
     }
 
-    public void refreshStartPosition(Signs[][] board) {
-        setStartPosition(board, startPosition.x, startPosition.y);
+    public int actualX;
+    public int actualY;
+
+    public void refreshCurrentPosition(Signs[][] board) {
+        setData(board, actualX, actualY, Signs.O);
     }
 
-    public void emptyStartPosition (Signs[][] board) {
-        setData(board, startPosition.x, startPosition.y, Signs.EMPTY);
+    public void emptyCurrentPosition(Signs[][] board) {
+        setData(board, actualX, actualY, Signs.EMPTY);
     }
 
     public void getStartPosition(Signs[][] board) {
-
         for (int i = 0; i < size; ++i) {
             for (int j = 0; j < size; ++j) {
                 if (board[i][j].equals(Signs.O)) {
-                    startPosition.x = i;
-                    startPosition.y = j;
+                    actualX = i;
+                    actualY = j;
                 }
             }
         }
     }
 
-    public boolean moveTop(Signs[][] board) {
-        if (startPosition.x == 0 || board[(startPosition.x) - 1][startPosition.y].equals(Signs.X)) {
+    public boolean moveUp(Signs[][] board) {
+
+        if (actualX == 0) {
             return false;
-        } else {
-            emptyStartPosition(board);
-            ++possibleMoves;
-            --startPosition.x;
-            refreshStartPosition(board);
         }
+
+        if (board[(actualX) - 1][actualY] == (Signs.X)) {
+            return false;
+        }
+
+        emptyCurrentPosition(board);
+        ++movesCount;
+        --actualX;
+        refreshCurrentPosition(board);
+
         return true;
     }
 
     public boolean moveRight(Signs[][] board) {
-        if ((startPosition.y == (size - 1)) || board[startPosition.x][(startPosition.y) + 1].equals(Signs.X)) {
+
+        if (actualY == (size - 1)) {
             return false;
-        } else {
-            emptyStartPosition(board);
-            ++possibleMoves;
-            ++startPosition.y;
-            refreshStartPosition(board);
         }
+
+        if (board[actualX][(actualY) + 1] == (Signs.X)) {
+            return false;
+        }
+
+        emptyCurrentPosition(board);
+        ++movesCount;
+        ++actualY;
+        refreshCurrentPosition(board);
+
         return true;
     }
 
-    public boolean moveBottom(Signs[][] board) {
-        if ((startPosition.x == size - 1) || board[startPosition.x + 1][startPosition.y].equals(Signs.X)) {
+    public boolean moveDown(Signs[][] board) {
+
+        if (actualX == size - 1) {
             return false;
-        } else {
-            emptyStartPosition(board);
-            ++possibleMoves;
-            ++startPosition.x;
-            refreshStartPosition(board);
         }
+
+        if (board[actualX + 1][actualY] == (Signs.X)) {
+            return false;
+        }
+
+        emptyCurrentPosition(board);
+        ++movesCount;
+        ++actualX;
+        refreshCurrentPosition(board);
+
         return true;
     }
 
     public boolean moveLeft(Signs[][] board) {
-        if ((startPosition.y == 0) || board[startPosition.x][startPosition.y - 1].equals(Signs.X)) {
+
+        if (actualY == 0) {
             return false;
-        } else {
-            emptyStartPosition(board);
-            ++possibleMoves;
-            --startPosition.y;
-            refreshStartPosition(board);
         }
+
+        if (board[actualX][actualY - 1] == (Signs.X)) {
+            return false;
+        }
+
+        emptyCurrentPosition(board);
+        ++movesCount;
+        --actualY;
+        refreshCurrentPosition(board);
+
         return true;
     }
 
-    public void go(Signs[][] board, int[] moves) {
+    public int go(Signs[][] board, Moves[] moves) {
+
+        getStartPosition(board);
+
+        movesCount = 0;
+
         for (int i = 0; i < moves.length; ++i) {
             switch (moves[i]) {
-                case 1:
-                    while (moveTop(board)) {
-                        moveTop(board);
+                case GO_UP:
+                    while (moveUp(board)) {
+                        moveUp(board);
                     }
                     break;
-                case 2:
+                case GO_RIGHT:
                     while (moveRight(board)) {
                         moveRight(board);
                     }
                     break;
-                case 3:
-                    while (moveBottom(board)) {
-                        moveBottom(board);
+                case GO_DOWN:
+                    while (moveDown(board)) {
+                        moveDown(board);
                     }
                     break;
-                case 4:
+                case GO_LEFT:
                     while (moveLeft(board)) {
                         moveLeft(board);
                     }
                     break;
             }
         }
+        return movesCount;
     }
 }

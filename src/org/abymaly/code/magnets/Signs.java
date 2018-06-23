@@ -3,7 +3,7 @@ package org.abymaly.code.magnets;
 public enum Signs {
     X ("X"),
     O ("O"),
-    EMPTY (" ");
+    EMPTY ("_");
 
     private String mark;
 
