@@ -1,3 +1,5 @@
+>> Sortowanie ma nie gubić elementów tylko jest sortować (@jbanaszczyk).
+
 ### Algorytmy wyszukiwania
 
 Dwa rodzaje:
