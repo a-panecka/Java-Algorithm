@@ -2,34 +2,29 @@ package org.abymaly.code;
 
 public class Sieve {
 
-    public int[] createSieve(int maxVal) {
+    public boolean[] createSieve(int maxVal) {
 
-        // TODO: takie podstawienie size jest raczej bez sensu, ale to jest jakiś początek ograniczenia wielkości tablicy do pierwiastka szukanej wartości.
-        int size = maxVal;
+        boolean[] sieve = new boolean[maxVal + 1];
 
-        if (maxVal % Math.sqrt(maxVal) == 0) {
-            size = (int) Math.sqrt(maxVal);
+        for (int i = 0; i <= maxVal; ++i) {
+            sieve[i] = true;
         }
 
-        int[] sieve = new int[size];
+        sieve[0] = false;
+        sieve[1] = false;
 
-        for (int i = 0; i < sieve.length; ++i) {
-            sieve[i] = i + 1;
-        }
-
-        for (int idx = 1; idx < sieve.length; ++idx) {
-            for (int nextIdx = idx + 1; nextIdx < sieve.length; ++nextIdx) {
-                if (sieve[idx] != 0) {
-                    if (sieve[nextIdx] % sieve[idx] == 0) {
-                        sieve[nextIdx] = 0;
-                    }
+        for (int idx = 2; idx <= maxVal; ++idx) {
+            if (sieve[idx]) {
+                for (int i = idx * 2; i <= maxVal; i += idx) {
+                    sieve[i] = false;
                 }
             }
         }
+
         return sieve;
     }
 
-    public String sieveToString(int[] sieve) {
+    public String sieveToString(boolean[] sieve) {
 
         StringBuilder sieveToString = new StringBuilder();
 
@@ -43,16 +38,8 @@ public class Sieve {
     }
 
     public boolean isPrimary(int val) {
-        boolean isPrimary = false;
         Sieve sieve = new Sieve();
-        int[] newSieve = sieve.createSieve(val);
-
-        for (int i = 0; i < newSieve.length; ++i) {
-            if (val == newSieve[i]) {
-                isPrimary = true;
-            }
-        }
-
-        return isPrimary;
+        boolean[] newSieve = sieve.createSieve(val);
+        return newSieve[val];
     }
 }
