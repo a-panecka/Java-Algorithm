@@ -33,7 +33,6 @@ public enum Operation {
         this.mark = mark;
     }
 
-
     abstract double calc(double x, double y);
 
     public Operation checkOperator(String strOperator) {

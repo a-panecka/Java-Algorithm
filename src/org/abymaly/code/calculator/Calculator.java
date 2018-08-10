@@ -12,6 +12,7 @@ public class Calculator {
             }
         }
         return currentOperator;
+
     }
 
     public double calculator(String input) {
