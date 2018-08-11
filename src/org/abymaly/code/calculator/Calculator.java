@@ -16,7 +16,7 @@ public class Calculator {
                     values.push(Double.parseDouble(item));
                 }
                 catch (RuntimeException e) {
-                    System.out.println("Error. Invalid datatype");
+                    System.out.println("Error: invalid datatype");
                 }
             } else {
                 values.push(Operation.checkOperator(item).calc(values.pop(), values.pop()));

@@ -17,6 +17,7 @@ public class CalculatorTest {
         String inputDiv = "100 3 /";
         String inputPower = "2 4 ^";
         String inputModulo = "8 3 %";
+
         String inputAll = "4 2 * 68 10 % 2 / + 3 2 ^ -";
 
         Assert.assertEquals(0.6, calculator.calculator(inputPlus), 3);
@@ -25,6 +26,7 @@ public class CalculatorTest {
         Assert.assertEquals(33.333, calculator.calculator(inputDiv), 3);
         Assert.assertEquals(16.0, calculator.calculator(inputPower), 3);
         Assert.assertEquals(2.0, calculator.calculator(inputModulo), 3);
+        
         Assert.assertEquals(3.0, calculator.calculator(inputAll), 3);
 
     }
