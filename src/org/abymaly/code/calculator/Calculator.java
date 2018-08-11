@@ -4,32 +4,26 @@ import java.util.*;
 
 public class Calculator {
 
-    public Operation checkOperator(String strOperator) {
-        Operation currentOperator = null;
-        for (Operation op : Operation.values()) {
-            if (strOperator.equals(op.mark)) {
-                currentOperator = op;
-            }
-        }
-        return currentOperator;
+    public double calculator(String input) throws Exception {
 
-    }
+        String[] inputValues = input.split(" ");
 
-    public double calculator(String input) {
+        Stack<Double> values = new Stack<>();
 
-        String[] inputValue = input.split(" ");
-
-        Stack<Double> stack = new Stack<>();
-
-        for (String item : inputValue) {
-            if (!item.matches("[^0-9]")) {
-                stack.push(Double.parseDouble(item));
+        for (String item : inputValues) {
+            if (Operation.checkOperator((item)) == null) {
+                try {
+                    values.push(Double.parseDouble(item));
+                }
+                catch (RuntimeException e) {
+                    System.out.println("Error. Invalid datatype");
+                }
             } else {
-                stack.push(checkOperator(item).calc(stack.pop(), stack.pop()));
+                values.push(Operation.checkOperator(item).calc(values.pop(), values.pop()));
             }
         }
 
-        return stack.pop();
+        return values.pop();
     }
 
 }

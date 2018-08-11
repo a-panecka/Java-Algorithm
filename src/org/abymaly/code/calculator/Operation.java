@@ -6,9 +6,9 @@ public enum Operation {
             return x + y;
         }
     },
-    SUBSTRACTION ("-"){
+    SUBTRACTION("-"){
         double calc (double x, double y) {
-            return x - y;
+            return y - x;
         }
     },
     MULTIPLICATION ("*"){
@@ -16,14 +16,19 @@ public enum Operation {
             return x * y;
         }
     },
-    DIVISION ("/"){
-        double calc (double x, double y) {
-            return x / y;
+    DIVISION ("/") {
+        double calc(double x, double y) {
+            return y / x;
         }
     },
-    EQUAL ("="){
+    POWER ("^"){
         double calc (double x, double y) {
-            return x;
+            return Math.pow(y, x);
+        }
+    },
+    MODULO ("%") {
+        double calc(double x, double y) {
+            return y % x;
         }
     };
 
@@ -35,13 +40,13 @@ public enum Operation {
 
     abstract double calc(double x, double y);
 
-    public Operation checkOperator(String strOperator) {
-        Operation currentOperator = null;
+    public static Operation checkOperator(String strOperator) {
         for (Operation op : Operation.values()) {
-            if (strOperator.equals(op.mark)) {
-                currentOperator = op;
+            if (op.mark.equals(strOperator)) {
+                return op;
             }
         }
-        return currentOperator;
+        return null;
     }
+
 }
