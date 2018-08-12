@@ -21,7 +21,7 @@ public class SameSubstring {
         }
         return str;
     }
-    
+
     public String arrayToString(String[] allStrings) {
         StringBuilder result = new StringBuilder();
 

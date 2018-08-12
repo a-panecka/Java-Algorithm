@@ -52,3 +52,9 @@
 - implementacja drzewa binarnego;
 - jak zawsze: add, delete, find;
 
+---
+
+ **Sito Eratostenesa**
+- algorytm wyznaczania liczb pierwszych;
+
+ ---

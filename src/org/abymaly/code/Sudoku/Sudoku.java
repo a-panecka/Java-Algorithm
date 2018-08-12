@@ -1,4 +1,6 @@
-package org.abymaly.code.Sudoku;
+
+package org.abymaly.code.sudoku;
+
 
 public class Sudoku {
 

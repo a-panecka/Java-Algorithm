@@ -1,7 +1,8 @@
 package test.org.abymaly.code.Sudoku;
 
-import org.abymaly.code.Sudoku.Sudoku;
+import org.abymaly.code.sudoku.Sudoku;
 import org.junit.Assert;
+
 import org.junit.Test;
 import org.junit.Before;
 import org.junit.After;

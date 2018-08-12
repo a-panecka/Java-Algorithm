@@ -4,7 +4,7 @@ Maven jest sytemem do budowania projektów w Javie.
 
 Takich systemów jest więcej:
 - Maven (współczesny i aktualny), standard;
-- Ant, obecnie AntYczny;
+- Ant, obecnie Anteczny;
 - Gradle, się przebija;
 
 O tym że są na razie wiedzieć, będzie o tym później
