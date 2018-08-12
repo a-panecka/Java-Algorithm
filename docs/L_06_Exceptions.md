@@ -2,7 +2,7 @@
 
 > Wyjątki: coś się spieprzyło, nie działa, nie wiem co z tym zrobić, niech się ktoś tym zajmie.
 
-**Takie bardzo silne runAll to z przekazaniem parametru i zamknięciem wszystkich klamer. Wielokrotny return**
+**Takie bardzo silne go to z przekazaniem parametru i zamknięciem wszystkich klamer. Wielokrotny return**
 
 Wyjątki są w każdym współczesnym języku
 

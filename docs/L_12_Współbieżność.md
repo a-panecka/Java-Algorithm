@@ -101,7 +101,7 @@ Miejsca do popełniania błedów - w sumie wszędzie.
 **Zakleszczenie / blokada wzajemna [_deadlock_]**:
 - sytuacja w której co najmniej dwie różne akcje czekają na siebie nawzajem, więc żadna nie może się skończyć;
 - dwóch sąsiadów poszło do siebie nawzajem i każdy czeka aż drugi wróci;
-- `reentrant synchronization` - jeśli jakiś kawałek kodu jest zablokowany (czyli zsynchroniozwany), to wątek który w nim jet moe runAll wykonać ponownie - blokada dotyczy tylko innych wątków; więc nie można napisać programu jednowątkowego, który się zakleszczy;
+- `reentrant synchronization` - jeśli jakiś kawałek kodu jest zablokowany (czyli zsynchroniozwany), to wątek który w nim jet moe go wykonać ponownie - blokada dotyczy tylko innych wątków; więc nie można napisać programu jednowątkowego, który się zakleszczy;
 - _problem ucztujących filozofów_;
 - zapobieganie, unikanie lub rozwiązywanie - ogarnąć;
 

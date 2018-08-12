@@ -41,7 +41,7 @@ if (x == 7) {
 
 ### Switch case
 
-Można używać, ale w Javie runAll nie lubią. Czy oni w ogóle coś lubią?
+Można używać, ale w Javie go nie lubią. Czy oni w ogóle coś lubią?
 
 ```JAVA
 switch (x) {

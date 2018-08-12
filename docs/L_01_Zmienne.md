@@ -60,7 +60,7 @@ long a = newL;                      // to jest unboxing
 ```
 
 _boxing_ i _unboxing_ jest kolejną operacją którą trzeba wykonać. Dlatego w niektórych sytuacjach nie używać zmiennych obiektowych.
-- w pętli obowiązkowo mały int, po co za każdym razem tworzyć nowy obiekt i runAll rozpakowywać.
+- w pętli obowiązkowo mały int, po co za każdym razem tworzyć nowy obiekt i go rozpakowywać.
 - w pozostałych miejscach w zasadzie jeden pies, chociaż programiści javy lubią obiekty;
 - w kontenerach używamy dużych Integerów:
     - int[17] x - tutaj mały int bo to tablica;

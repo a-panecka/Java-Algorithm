@@ -87,7 +87,7 @@ Do powiadamiania obiektów zainteresowanych informacją o zmianie stanu innego o
 - dowolnie wiele obserwatorów (_observer, listener_) -> widok;
 
 Obserwator informuje obserwującego, że dane się zmieniły, więc obserwowany ma podjąć jakąś reakcję.
-Obserwujący nie powinien wiedzieć ani wnikać kto runAll obserwuje.
+Obserwujący nie powinien wiedzieć ani wnikać kto go obserwuje.
 
 Tworzymy widok i model. Widok mówi modelowi: dopisz mnie do subskrybenta operacji.
 
@@ -187,7 +187,7 @@ W c++ - antywzorzec: następca zmiennej globalnej wstawianej przez preprocesor;
 Singleton w całej aplikacji może być dokładnie jeden. 
     - dokładnie jedna instancja klasy Singleton;
     
-Można runAll skonstruować wyłącznie przez `.getInstance()`
+Można go skonstruować wyłącznie przez `.getInstance()`
     - to jest odwołanie do statycznej metody klasy (to nie jest klasa obiektu, tylko metoda całej klasy);
     - sam obiekt jest schowany na tye głęboko, żeby nikt się nie mógł do niego dostać;
     - pierwszy `.getInstance()` gdzieś w czeluściach statycznego pola stworzy obiekt klasy Single, każde kolejne odwołanie się przez `.getInstance()` zwróci już istniejącą zmienną;
@@ -209,7 +209,7 @@ public class Singleton {
 ```
 
 Przy wielowątkowości:
-- pierwszy proces tworzy Singleton, reszta sprawdza czy jest null, nie jest null, bo pierwszy runAll storzył, więc reszta ma do niego dostęp;
+- pierwszy proces tworzy Singleton, reszta sprawdza czy jest null, nie jest null, bo pierwszy go storzył, więc reszta ma do niego dostęp;
 - ale wątki wykonują się jednocześnie, więc metoda która twrzy singletom może zostać odpalona jednocześnie (!) przez dwa wątkie -> więc powstanie więcej niż jeden sungleton;
     - można dodać `synchronized`, ale wszystkie inne wątki będą czekały w kolejce aż pierwszy skończy;
 
