@@ -1,6 +1,7 @@
 package test.org.abymaly.code.Sudoku;
 
-import org.abymaly.code.sudoku.SudokuSize;
+import org.abymaly.code.Sudoku.SudokuSize;
+
 import org.junit.Test;
 
 public class sudokuSizeTest {
