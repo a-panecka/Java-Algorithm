@@ -1,3 +1,4 @@
+
 package org.abymaly.code.Sudoku;
 
 import static java.lang.Math.sqrt;
