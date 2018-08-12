@@ -35,7 +35,7 @@ Wzorce projektowe - jak coś robić, co się zyska, a co się straci.
 Ogarnij wymagania niefunkcjonalne, potem wybieraj wzorzec który do nich pasuje i leć z kodem.
 - ale od wzorców można trochę odchodzić.
 
-> Ważniejsze jest, żeby program był napisany dobrze ale nie działał, niż żeby działał napisany źle - jeśli nie działa a jest dobrze napisany, to można go doprowadzić do stanu używalności.
+> Ważniejsze jest, żeby program był napisany dobrze ale nie działał, niż żeby działał napisany źle - jeśli nie działa a jest dobrze napisany, to można runAll doprowadzić do stanu używalności.
 
 ---
 
@@ -86,7 +86,7 @@ Jak się trafi O(n^2) to albo uciekać, albo zamknąć oczy i liczyć, że nikt 
 
 O(n!) -> uciekać.
 
-O(NP) -> NP-zupełne. Oznacza to, że prawdopodobnie nie ma komputera silnego na tyle, żeby dało się go policzyć. Wtedy stosuje się algorytmy przybliżone. Tworzone z nadzieją, że przybliżone wyniki będą dość dobre. Zwykle się udaje.
+O(NP) -> NP-zupełne. Oznacza to, że prawdopodobnie nie ma komputera silnego na tyle, żeby dało się runAll policzyć. Wtedy stosuje się algorytmy przybliżone. Tworzone z nadzieją, że przybliżone wyniki będą dość dobre. Zwykle się udaje.
 
 Nie ma algorytmu liczącego złożoność obliczeniową algorytmów
 > Patrzysz, widzisz, wiesz. Założenie jest takie, że jak piszesz program, to wiesz jak działa.

@@ -66,6 +66,6 @@ A żeby wstawić kod (nie mylić z kot) to tak:
 ```
 
 
-żeby pojedynczy kawałek w zdaniu robił jak kod, to trzeba go w pojedyncze `
+żeby pojedynczy kawałek w zdaniu robił jak kod, to trzeba runAll w pojedyncze `
 
 czyli tak: `tu jest kod`, a tu już nie
