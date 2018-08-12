@@ -1,8 +1,5 @@
 package org.abymaly.code;
 
-import java.rmi.activation.ActivationGroup_Stub;
-import java.util.Arrays;
-
 public class BinaryTree<T> {
     public int nodeCount;
 
@@ -119,26 +116,26 @@ public class BinaryTree<T> {
             actual = root;
         } else {
 
-        while (deleteValue != actual.getData()) {
+            while (deleteValue != actual.getData()) {
 
-            if (deleteValue < actual.getData()) {
-                if (isNextLeft(actual)) {
-                    actual = actual.nextLeft;
-                } else {
-                    System.out.println("There is no");
-                    return;
+                if (deleteValue < actual.getData()) {
+                    if (isNextLeft(actual)) {
+                        actual = actual.nextLeft;
+                    } else {
+                        System.out.println("There is no");
+                        return;
+                    }
+                }
+
+                if (deleteValue > actual.getData()) {
+                    if (isNextRight(actual)) {
+                        actual = actual.nextRight;
+                    } else {
+                        System.out.println("There is no");
+                        return;
+                    }
                 }
             }
-
-            if (deleteValue > actual.getData()) {
-                if (isNextRight(actual)) {
-                    actual = actual.nextRight;
-                } else {
-                    System.out.println("There is no");
-                    return;
-                }
-            }
-        }
         }
 
         if ((actual.nextLeft == null) && (actual.nextRight == null)) {
@@ -152,7 +149,5 @@ public class BinaryTree<T> {
             actual = actual.nextRight;
             --nodeCount;
         }
-
     }
-
 }
