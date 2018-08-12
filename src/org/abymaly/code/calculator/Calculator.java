@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Calculator {
 
-    public double calculator(String input) throws Exception {
+    public double calculator(String input) {
 
         String[] inputValues = input.split(" ");
 
@@ -12,12 +12,7 @@ public class Calculator {
 
         for (String item : inputValues) {
             if (Operation.checkOperator((item)) == null) {
-                try {
-                    values.push(Double.parseDouble(item));
-                }
-                catch (RuntimeException e) {
-                    System.out.println("Error: invalid datatype");
-                }
+                values.push(Double.parseDouble(item));
             } else {
                 values.push(Operation.checkOperator(item).calc(values.pop(), values.pop()));
             }

@@ -2,31 +2,31 @@ package org.abymaly.code.calculator;
 
 public enum Operation {
     ADDITION("+") {
-        double calc (double x, double y) {
-            return x + y;
+        double calc(double x, double y) {
+            return y + x;
         }
     },
-    SUBTRACTION("-"){
-        double calc (double x, double y) {
+    SUBTRACTION("-") {
+        double calc(double x, double y) {
             return y - x;
         }
     },
-    MULTIPLICATION ("*"){
-        double calc (double x, double y) {
-            return x * y;
+    MULTIPLICATION("*") {
+        double calc(double x, double y) {
+            return y * x;
         }
     },
-    DIVISION ("/") {
+    DIVISION("/") {
         double calc(double x, double y) {
             return y / x;
         }
     },
-    POWER ("^"){
-        double calc (double x, double y) {
+    POWER("^") {
+        double calc(double x, double y) {
             return Math.pow(y, x);
         }
     },
-    MODULO ("%") {
+    MODULO("%") {
         double calc(double x, double y) {
             return y % x;
         }
@@ -47,7 +47,5 @@ public enum Operation {
             }
         }
         return null;
-
     }
-
 }
