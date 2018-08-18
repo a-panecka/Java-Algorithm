@@ -58,3 +58,21 @@
 - algorytm wyznaczania liczb pierwszych;
 
  ---
+
+**DAWG**
+Skierowany acykliczny graf do prezentacji słów w zestawie ze znakami polskimi
+
+- jest sobie root
+- Z tego roota wychodzi do 31 krawędzi (czyli liczebność zbioru A-Z + ą, ć, ę, ł, ń, ó, ś, ż, ź, zdecydować czy uwzględniamy x, v)
+- każda krawędź reprezentuje jedną literką
+- taką listę można jako:
+    - listę, niekoniecznie LinkedList, lepiej ArrayList o predefiniowanej długości;
+    - jako mapę, gdzie kluczem literka, a wartością jest literka do której prowadzi
+- oprócz roota jest sobie słownik który chcemy dołożyć (perz, perkoz, pers, persja, pepeg)
+- każdy słowo rozbijamy na pojedyńczy graf
+- z noda lecimy krawędzią symbolizującą krawędź P do nowego noda (który nie ma znacznika koniec słowa), z niego krawędzią reprezenującą E do nowego noda...
+- trafiamy krawezią Z do nowego noda któy ma znacznik "tu może się kończyć słowo", dodajemy słowo
+- od noda R lecimy krawędzią literki S, nowe słowo (PERS), tu może kończyć się słowo, dalej nowe krawędzie: J i A, nowe słowo (PERSJA), znacznik końca słowa
+- każdy węzeł zawiera bolleana możliwy koniec słowa bądź nie i informację o wychodzące krawędziach (max 31). Czy zawiera Map<Char, Node>
+- litery trzymane sąw krawędziach
+- sprawdzić czy w drzewie są słowa: PERSJI, PERSJ, PERS, ZUPA
