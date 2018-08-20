@@ -1,4 +1,4 @@
-package org.abymaly.code.calculatorPriority;
+package org.abymaly.code.calcPriority;
 
 public enum BracketPriority {
     OPEN_BRACKET("(") {

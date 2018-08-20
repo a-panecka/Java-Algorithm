@@ -1,6 +1,6 @@
-package org.abymaly.code.calculatorPriority;
+package org.abymaly.code.calcPriority;
 
-import java.util.*;
+import java.util.Stack;
 
 public class CalculatorPriority {
 
