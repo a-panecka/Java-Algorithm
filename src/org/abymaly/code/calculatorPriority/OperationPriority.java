@@ -2,33 +2,28 @@ package org.abymaly.code.calculatorPriority;
 
 public enum OperationPriority {
     ADDITION("+") {
-        int calcPriority() {
+        int calcOperationPriority() {
             return 0;
         }
     },
     SUBTRACTION("-") {
-        int calcPriority() {
+        int calcOperationPriority() {
             return 0;
         }
     },
-    MULTIPLICATION("*"){
-        int calcPriority () {
+    MULTIPLICATION("*") {
+        int calcOperationPriority() {
             return 1;
         }
     },
-    DIVISION("/"){
-        int calcPriority () {
+    DIVISION("/") {
+        int calcOperationPriority() {
             return 1;
         }
     },
-    OPEN_BRACKET("(") {
-        int calcPriority() {
-            return 1;
-        }
-    },
-    CLOSE_BRACKET(")") {
-        int calcPriority() {
-            return -1;
+    EQUALS("=") {
+        int calcOperationPriority() {
+            return -10000;
         }
     };
 
@@ -38,6 +33,15 @@ public enum OperationPriority {
         this.mark = mark;
     }
 
-    abstract int calcPriority();
+    public static OperationPriority checkOperator(String strOperator) {
+        for (OperationPriority op : OperationPriority.values()) {
+            if (op.mark.equals(strOperator)) {
+                return op;
+            }
+        }
+        return null;
+    }
+
+    abstract int calcOperationPriority();
 
 }

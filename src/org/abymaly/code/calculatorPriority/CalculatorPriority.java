@@ -1,47 +1,86 @@
 package org.abymaly.code.calculatorPriority;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class CalculatorPriority {
 
+    Stack<PriorityPair> operators;
+    Stack<Double> values;
+
+    public CalculatorPriority() {
+        this.operators = new Stack<>();
+        operators.add(new PriorityPair(0, 0, "+"));
+        this.values = new Stack<>();
+    }
+
     public class PriorityPair {
-        private double value;
-        private int priority;
+        private int operationPriority;
+        private int bracketPriority;
+        private String sign;
 
-        public PriorityPair(double value, int priority) {
-            this.value = value;
-            this.priority = priority;
+        public String getSign() {
+            return sign;
         }
 
-        public double getValue() {
-            return value;
+        public int getBracketPriority() {
+            return bracketPriority;
         }
 
-        public void setValue(double value) {
-            this.value = value;
+        public PriorityPair(int operationPriority, int bracketPriority, String sign) {
+            this.operationPriority = operationPriority;
+            this.bracketPriority = bracketPriority;
+            this.sign = sign;
         }
 
-        public int getPriority() {
-            return priority;
-        }
-
-        public void setPriority(int priority) {
-            this.priority = priority;
+        public int getSumPriority() {
+            return operationPriority + bracketPriority;
         }
     }
 
-    public void calculator(String input) {
+    public boolean nextPrioritySumBigger(PriorityPair currentValue) {
+        if (operators.peek().getSumPriority() <= currentValue.getSumPriority()) {
+            return true;
+        }
+        return false;
+    }
+
+    public PriorityPair createNextPair(String input) {
+        if (OperationPriority.checkOperator(input) != null) {
+            return new PriorityPair(OperationPriority.checkOperator(input).calcOperationPriority(), operators.peek().getBracketPriority(), input);
+        } else {
+            return new PriorityPair(0, BracketPriority.checkOperator(input).calcBracketPriority() + operators.peek().getBracketPriority(), input);
+        }
+    }
+
+    public double calculator(String input) {
 
         String[] inputValues = input.split(" ");
-        int currentPriorityValue = 0;
 
-        List<PriorityPair> values = new ArrayList<>();
         for (String item : inputValues) {
-            if ((!item.matches("[^0-9]"))) {
-                values.add(new PriorityPair(Double.parseDouble(item), currentPriorityValue));
+            if (OperationPriority.checkOperator(item) != null || BracketPriority.checkOperator(item) != null) {
+
+                if (nextPrioritySumBigger(createNextPair(item))) {
+                    operators.push(createNextPair(item));
+
+                } else {
+                    while (operators.size() > 1) {
+                        if (OperationPriority.checkOperator(operators.peek().getSign()) != null) {
+                            values.push(Operation.checkOperator(operators.pop().getSign()).calc(values.pop(), values.pop()));
+                        } else {
+                            operators.pop();
+                        }
+                    }
+
+                    if (OperationPriority.checkOperator(item) != null) {
+                        operators.push(createNextPair(item));
+                    }
+
+                }
+            } else {
+                values.push(Double.parseDouble(item));
             }
         }
 
+        return values.pop();
     }
 }
