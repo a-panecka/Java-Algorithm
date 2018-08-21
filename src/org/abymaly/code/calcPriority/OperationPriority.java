@@ -3,22 +3,31 @@ package org.abymaly.code.calcPriority;
 public enum OperationPriority {
     ADDITION("+") {
         int calcOperationPriority() {
-            return 0;
+            return 1;
         }
     },
     SUBTRACTION("-") {
         int calcOperationPriority() {
-            return 0;
+            return 1;
         }
     },
     MULTIPLICATION("*") {
         int calcOperationPriority() {
-            return 1;
+            return 2;
         }
     },
     DIVISION("/") {
         int calcOperationPriority() {
-            return 1;
+            return 2;
+        }
+    },
+//    TODO:
+//    POWER ("^") {
+//        int calcOperationPriority() { return 3; }
+//    },
+    MODULO("%") {
+        int calcOperationPriority() {
+            return 3;
         }
     },
     EQUALS("=") {

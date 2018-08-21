@@ -9,7 +9,7 @@ public class CalculatorPriority {
 
     public CalculatorPriority() {
         this.operators = new Stack<>();
-        operators.add(new PriorityPair(0, 0, "+"));
+        operators.add(new PriorityPair(0, 0, ""));
         this.values = new Stack<>();
     }
 
@@ -38,10 +38,7 @@ public class CalculatorPriority {
     }
 
     public boolean nextPrioritySumBigger(PriorityPair currentValue) {
-        if (operators.peek().getSumPriority() <= currentValue.getSumPriority()) {
-            return true;
-        }
-        return false;
+        return operators.peek().getSumPriority() <= currentValue.getSumPriority();
     }
 
     public PriorityPair createNextPair(String input) {
